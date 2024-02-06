@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz "suhel khan"</title>
+    <link rel="stylesheet" href="Quiz.css">
+</head>
+<body>
+
+<div id="quiz-container">
+    <h1>JavaScript Quiz</h1>
+
+    <div class="question" id="question"></div>
+
+    <div class="options" id="options"></div>
+
+    <button onclick="nextQuestion()">Next Question</button>
+</div>
+
+
+<script>const quizData = [
+  {
+          question: "Who is your favourite teacher?",
+          options: ["SHIV HARI TEWARI", "SHREYA MAM", "MANALI MAM", "Kshitiz Srivastava"],
+          correctAnswer: "Kshitiz Srivastava"
+      },
+      {
+          
+          question: "What does HTML stand for?",
+         
+
+          options: [" a) Hyper Text Markup Language", "b) High-Level Text Manipulation Language", "c) Hyperlink and Text Markup Language", "d) Home Tool Markup Language"],
+          correctAnswer: " a) Hyper Text Markup Language"
+      },
+      {
+          question: "What is the purpose of the typeof operator in JavaScript?",
+        
+          options: ["a) To check if a variable is defined", "b) To determine the data type of a value", "c) To assign a type to a variable", "d) To concatenate strings"],
+          correctAnswer: "b) To determine the data type of a value"
+      },
+      {
+          question: "How do you declare a variable in JavaScript?",
+  
+          options: [" a) v varName;", "b) variable varName;", "c) var varName;", "d) declare varName;"],
+          correctAnswer: "c) var varName;"
+      },
+      {
+          question: "What is the capital of India?",
+          options: ["Surat", "Lucknow", "Delhi", "Ghazipur"],
+          correctAnswer: "Delhi"
+      },
+      {
+          question: "What is the purpose of the addEventListener method in JavaScript?",
+        
+          options: [" a) To create a new event", "b) To attach an event handler to an element", "c) To remove an event from an element", "d) To check if an event has occurred"],
+          correctAnswer: "b) To attach an event handler to an element"
+      },
+     
+
+
+      {
+          question: "What does DOM stand for in JavaScript?",
+          options: ["a) Document Object Model", "b) Data Object Model", "c) Document Oriented Model", "d) Digital Object Model"],
+          correctAnswer: "a) Document Object Model"
+      },
+      {
+          question: "How do you declare a variable in JavaScript using let?",
+          options: ["a) variable x;", "b) let x;", "c) var x;", "d) int x;"],
+          correctAnswer: "b) let x;"
+      },
+      {
+          question: "What will the following code output: console.log(5 + '5')?",
+          options: ["a) 10", "(b '55'", "c) 55", "d) Error"],
+          correctAnswer: "b) '55'"
+      },
+      {
+          question: 
+"What is the purpose of the setTimeout function in JavaScript?",
+          options: ["a) To set the time on the computer", "b) To create a delay before executing a function", "c) To update the system clock", "d) To set a timeout for AJAX requests"],
+          correctAnswer: "b) To create a delay before executing a function",
+      },
+       {
+          question: "What is the capital of India?",
+          options: ["Surat", "Lucknow", "Delhi", "Ghazipur"],
+          correctAnswer: "Delhi"
+      },
+      {
+  question: "What is the difference between == and === in JavaScript?",
+  options: [
+      "a) Both perform strict equality checks",
+      "b) == performs type coercion, while === does not",
+      "c) They are interchangeable",
+      "d) === performs type coercion, while == does not"
+  ],
+  correctAnswer: "b) == performs type coercion, while === does not"
+},
+
+
+      {
+          question: "How do you comment out multiple lines in JavaScript?",
+          options: ["a) /* comment */", "b) <!-- comment -->", "c) // comment //", "d) # comment #"],
+          correctAnswer: "a) /* comment */"
+      },
+      {
+          question: "What is the purpose of the JSON.stringify method in JavaScript?",
+          options: ["a) To parse a JSON string", "b) To convert a JavaScript object to a JSON string", "c) To format JSON for better readability", "d) To validate JSON syntax"],
+          correctAnswer: "b) To convert a JavaScript object to a JSON string"
+      },
+      {
+          question: "Which programming language is known as the 'language of the web'?",
+          options: ["Java", "Python", "JavaScript", "C++"],
+          correctAnswer: "JavaScript"
+      },
+  
+      
+      {
+          question: "What is the result of 2 + 2?",
+          options: ["3", "4", "5", "6"],
+          correctAnswer: "4"
+      },
+       {
+          question: "What is the capital of India?",
+          options: ["Surat", "Lucknow", "Delhi", "Ghazipur"],
+          correctAnswer: "Delhi"
+      },
+      {
+          question: "Which programming language is known as the 'language of the web'?",
+          options: ["Java", "Python", "JavaScript", "C++"],
+          correctAnswer: "JavaScript"
+      },
+      {
+          question: "What is JavaScript?",
+
+
+          options: ["A) A type of coffee", "B) A programming language for web development", "C) A style of dance",
+"D) A type of bird"],
+          correctAnswer: "B) A programming language for web development"
+      },
+      {
+          question: "What is the purpose of the querySelector method in JavaScript?",
+          options: ["A) To declare a constant variable.", "B) To select the first element that matches a specified CSS selector.",
+"C) To declare a function.", "D) To perform a bitwise comparison."],
+          correctAnswer: "B) To select the first element that matches a specified CSS selector."
+      },
+      {
+          question: "How can you prevent the default behavior of an HTML form submission in JavaScript?",
+          options: ["A) event.preventDefault();", "B) event.stop();", "C) event.cancelSubmit();", "D) event.abort();"],
+          correctAnswer: "A) event.preventDefault();"
+      },
+      {
+          question: "What is the result of 90+90?",
+          options: ["213", "420", "421", "180"],
+          correctAnswer: "180"
+      },
+      {
+          question: "What is the purpose of the 'let' keyword in JavaScript?",
+          options: ["A) To declare a constant variable.", "B) To declare a block-scoped variable.", "C) To declare a global variable.", "D) To declare a function."],
+          correctAnswer: "B) To declare a block-scoped variable."
+      },
+      {
+          question: " What is the event loop in JavaScript, and how does it work?",
+          options: ["A) It's a loop that iterates through events in a web page", "B) It's a loop that handles asynchronous tasks and callbacks.", "C) It's a loop that manages the order of execution of synchronous code", "D) It's a loop that controls the animation frames in a webpage."],
+          correctAnswer: ""
+      },
+      {
+          question: "What is the difference between 'undefined' and 'null' in JavaScript?",
+          options: ["A) They are the same.", "B) 'undefined' is an object, and 'null' is a primitive type.", "C) 'undefined' is a type, and 'null' is a value.", "D) 'undefined' is the default value of uninitialized variables, and 'null' is an assigned "],
+          correctAnswer: " 'undefined' is the default value of uninitialized variables, and 'null' is an assigned value representing no value or no object."
+
+
+      }
+  ];
+
+  // Variables to track current question and score///
+  let currentQuestionIndex = 0;
+  let score = 0;
+
+  // Function to initialize the quiz//
+  function initializeQuiz() {
+      showQuestion();
+  }
+
+  // Function to show the current question and options//
+  function showQuestion() {
+      const currentQuestion = quizData[currentQuestionIndex];
+      document.getElementById("question").textContent = currentQuestion.question;
+
+      const optionsContainer = document.getElementById("options");
+      optionsContainer.innerHTML = "";
+
+      currentQuestion.options.forEach((option, index) => {
+          const button = document.createElement("button");
+          button.textContent = option;
+          button.onclick = () => checkAnswer(option);
+          optionsContainer.appendChild(button);
+      });
+  }
+
+  // Function to check the selected answer//
+  function checkAnswer(selectedOption) {
+      const currentQuestion = quizData[currentQuestionIndex];
+      if (selectedOption === currentQuestion.correctAnswer) {
+          score++;
+      }
+      nextQuestion();
+  }
+
+  // Function to move to the next question or end the quiz//
+  function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < quizData.length) {
+          showQuestion();
+      } else {
+          endQuiz();
+      }
+  }
+
+  // Function to end the qui//
+  function endQuiz() {
+      const quizContainer = document.getElementById("quiz-container");
+      quizContainer.innerHTML = `
+          <h1>Quiz Completed!</h1>
+          <p>Your Score: ${score} out of ${quizData.length}</p>
+      `;
+  }
+
+  
+  window.onload = initializeQuiz;
+
+
+
+</script>
+
+</body>
+</html>
+
+
